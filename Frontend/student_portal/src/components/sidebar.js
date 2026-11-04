@@ -44,7 +44,7 @@ export default function Sidebar() {
         key={item.name}
         href={item.href}
         onClick={() => setShowMore(false)}
-        className={`   flex h-12 w-auto shrink-0 flex-col items-center justify-center gap-1 rounded-lg px-2 text-[10px] transition-colors lg:h-auto lg:flex-row lg:justify-start lg:gap-3 lg:px-3 lg:py-3 lg:text-[13px]
+        className={` borde  flex h-12 w-auto shrink-0 flex-col items-center justify-center gap-1 rounded-lg px-2 text-[10px] transition-colors lg:h-auto lg:flex-row lg:justify-start lg:gap-3 lg:px-3 lg:py-3 lg:text-[13px]
           ${isActive(item.href)
             ? "bg-[#a4b49c]  font-semibold text-[#17231b]"
             : "text-[#5c6a66]    hover:bg-[#e3e9df] hover:text-black"

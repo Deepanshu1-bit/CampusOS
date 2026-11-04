@@ -1,4 +1,6 @@
+'use client'
 import { PencilLine, } from 'lucide-react'
+import { useState } from 'react';
 
 export default function ProfilePage() {
 
@@ -13,7 +15,8 @@ export default function ProfilePage() {
   //   Nationality: 'Indian'
   // }
 
-  const StudentData = [
+
+  const Personal_Details = [
     { Full_Name: 'Priya Sharma' },
     { Date_Of_Birth: '14 March 2004' },
     { Gender: 'Female' },
@@ -24,20 +27,30 @@ export default function ProfilePage() {
     { Nationality: 'Indian' }
   ]
 
-  const AcademicDetails = [
+  const Academic_Details = [
     { Course: "B.Tech in Computer Science" },
     { Student_ID: "2023CS1042" },
+    { University: "Delhi University" },
+    { College_Name: "ABC Institute of Technology" },
     { Current_Year: "2nd Year" },
-    { Semester: "4th Semester" }
+    { Semester: "4th Semester" },
+    { Admission_Year: "2023" },
+    { Enrollment_Status: "Active" }
   ];
-
-  const ContactInformation = [
+  const Contact_Information = [
     { Email_Address: "priya.sharma@college.edu" },
     { Phone_Number: "+91 98765 43210" },
     { Address: "123 Green Park, New Delhi, 110016" },
-    { Emergency_Contact: "+91 98765 43211" }
+    { City: "New Delhi" },
+    { State: "Delhi" },
+    { Country: "India" },
+    { Emergency_Contact: "+91 98765 43211" },
+    { Guardian_Name: "Rajesh Sharma" }
   ];
-  return ( 
+
+  const [activeTab, setActiveTab] = useState('Personal_Details')
+
+  return (
     <div className="borde min-h-screen bg-[#f3f5f1] flex flex-col gap-5 w-full shrink-0 px-4 pt-7 pb-20 sm:px-6 lg:px-8 lg:py-7 overflow-hidden">
       <div className="borde flex justify-between items-center">
         <div className="borde shrink-0">
@@ -82,18 +95,27 @@ export default function ProfilePage() {
         </div>
       </div>
       <div className='borde flex gap-3 sm:gap-4 md:gap-5 '>
-        <p className='rounded-t-xl p-2 px-1.5 shrink-0 bg-[#d4e7db] text-[#7c8a85] hover:border-b-2 hover:border-b-[#A8C2B3] text-xs font-semibold md:text-base  md:font-medium'>Personal Details</p>
-        <p className='rounded-t-xl p-2 px-1.5 shrink-0 bg-[#d4e7db] text-[#7c8a85] hover:border-b-2 hover:border-b-[#A8C2B3] text-xs font-semibold md:text-base  md:font-medium'>Academic Details</p>
-        <p className='rounded-t-xl p-2 px-1.5 shrink-0 bg-[#d4e7db] text-[#7c8a85] hover:border-b-2 hover:border-b-[#A8C2B3] text-xs font-semibold md:text-base  md:font-medium'>Contact Information</p>
+        <p onClick={() => { setActiveTab('Personal_Details') }} className={` ${(activeTab == 'Personal_Details') ? 'borde border-b-2 border-[#A8C2B3] bg-[#d4e7db]' : 'border border-b-2 border-white bg-white hover:border-b-[#A8C2B3]'} rounded-t-xl p-2 px-1.5 shrink-0 text-[#7c8a85] hover:border-b-2 hover:border-b-[#A8C2B3] text-xs font-semibold md:text-base  md:font-medium`}>Personal Details</p>
+        <p onClick={() => { setActiveTab('Academic_Details') }} className={` ${(activeTab == 'Academic_Details') ? 'border border-b-2 border-[#A8C2B3] bg-[#d4e7db]' : 'border border-b-2 border-white bg-white hover:border-b-[#A8C2B3]'} rounded-t-xl p-2 px-1.5 shrink-0 text-[#7c8a85] hover:border-b-2 hover:border-b-[#A8C2B3] text-xs font-semibold md:text-base  md:font-medium`}>Academic Details</p>
+        <p onClick={() => { setActiveTab('Contact_Information') }} className={` ${(activeTab == 'Contact_Information') ? 'border border-b-2 border-[#A8C2B3] bg-[#d4e7db]' : 'border border-b-2 border-white bg-white hover:border-b-[#A8C2B3]'} rounded-t-xl p-2 px-1.5 shrink-0 text-[#7c8a85] hover:border-b-2 hover:border-b-[#A8C2B3] text-xs font-semibold md:text-base  md:font-medium`}>Contact Information</p>
       </div>
       <div className='borde bg-white rounded-xl p-5'>
         <div className='borde border-blue-400 grid grid-cols-1 md:gap-x-5 grid-rows-8 md:grid-cols-2 md:grid-rows-4 '>
-          {StudentData.map((item, index) => {
-            return (<div key={index} className='border-b-2 border-b-[#9fae95] flex justify-between items-center md:gap-10'><p className='text-[#7c8a85] borde font-medium'>{Object.keys(item)}</p><p className='borde w-50 flex justify-start font-medium'>{Object.values(item)}</p></div>
-            )
-          })}
+          {(activeTab === 'Personal_Details'
+            ? Personal_Details
+            : activeTab === 'Academic_Details'
+              ? Academic_Details
+              : Contact_Information).map((item, index) => {
+                return (
+                  <div key={index} className='borde border-b-2 border-b-[#9fae95] flex justify-between items-center h-13'>
+                    <p className='text-[#7c8a85] borde text-[13px] font-medium'>{Object.keys(item)}</p>
+                    <p className='borde w-50 flex justify-start text-[14px] font-medium'>{Object.values(item)}</p>
+                  </div>
+                )
+              })}
         </div>
       </div>
     </div>
   );
 }
+// 9fae95

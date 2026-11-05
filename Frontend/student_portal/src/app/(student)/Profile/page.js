@@ -51,65 +51,67 @@ export default function ProfilePage() {
   const [activeTab, setActiveTab] = useState('Personal_Details')
 
   return (
-    <div className="borde min-h-screen bg-[#f3f5f1] flex flex-col gap-5 w-full shrink-0 px-4 pt-7 pb-20 sm:px-6 lg:px-8 lg:py-7 overflow-hidden">
-      <div className="borde flex justify-between items-center">
-        <div className="borde shrink-0">
-          <h1 className="borde text-2xl font-bold text-[#111c16] sm:text-2xl">
-            Profile
+    <div className="min-h-screen bg-[#f3f5f1] flex flex-col gap-5 w-full shrink-0 px-4 pt-7 pb-20 sm:px-6 lg:px-8 lg:py-7 overflow-hidden">
+      <div className="flex justify-between items-center">
+        <div className="shrink-0">
+          <h1 className="text-2xl font-bold text-[#111c16] sm:text-2xl">
+            My Profile
           </h1>
 
-          <p className="borde mt-1 text-sm text-[#849088]">
-            Your personal and academic details.
+          <p className="mt-1 text-sm text-[#849088]">
+            Your personal and academic details
           </p>
         </div>
       </div>
-      <div className='borde border-red-500 bg-white rounded-xl p-5 flex flex-col  items-end'>
-        <div className="flex items-center bg-white rounded-lg p-1 gap-2 text-[10px] shrink-0 border-2 text-gray-400 border-gray-300 md:text-[12px] md:font-semibold">
+      <div className='bg-white rounded-xl p-5 flex flex-col  items-end'>
+        <div className="flex items-center bg-white rounded-lg p-1 gap-2 text-[11px] shrink-0 border-2 text-[#111c16] border-gray-300 font-semibold md:text-xs">
           <PencilLine className='size-3 md:size-4' />Edit Profile
         </div>
-        <div className='borde border-blue-600 w-full  flex flex-col gap-5 md:flex-row md:justify-between md:mt-5'>
-          <div className='borde  flex flex-col gap-5 items-center justify-center md:flex-row  '>
-            <div className="flex size-25 items-center justify-center rounded-full bg-[#d7e8dc] text-[30px] font-bold text-[#47765c] md:size-25 md:text-4xl">
+        <div className='w-full flex flex-col gap-5 md:flex-row md:justify-between md:mt-5'>
+          <div className='flex flex-col gap-5 items-center justify-center md:flex-row  '>
+            <div className="flex size-25 items-center justify-center rounded-full bg-[#d7e8dc] text-[30px] font-bold tracking-wide text-[#47765c] md:size-25 md:text-4xl">
               PS
             </div>
 
-            <div className="borde border-green-500 flex flex-col  items-center md:items-start">
-              <p className="text-[20px] font-bold">
+            <div className="flex flex-col items-center md:items-start">
+              <p className="text-lg font-bold leading-tight text-[#111c16] md:text-xl">
                 Priya Sharma
               </p>
-              <p className="text-[12px] md:text-[14px] text-[#5c6a66]">
+              <p className="text-xs leading-5 text-[#77847d] md:text-[13px]">
                 B.Tech in Computer Science
               </p>
-              <p className="text-[12px] md:text-[14px] text-[#5c6a66]">
+              <p className="text-xs leading-5 text-[#77847d] md:text-[13px]">
                 Student ID: 2023CS1042 · 2nd Year
               </p>
-              <div className=' p-1 px-2 font-semibold text-[10px] text-[#47765c] bg-[#d7e8dc] rounded-2xl mt-2 flex items-center gap-1'><p className=' p-1 rounded-full bg-[#0afa76]' />Active</div>
+              <div className='p-1 px-2 font-semibold text-[10px] text-[#347653] bg-[#d7e8dc] rounded-2xl mt-2 flex items-center gap-1'>
+                <p className='p-1 rounded-full bg-[#0afa76]' />Active
+              </div>
             </div>
 
           </div>
-          <div className='borde flex-col  pt-5 pl-5 pb-10 gap-15 hidden bg-[#d7e8dc] rounded-xl md:flex md:w-70 lg:w-85'>
-            <p className='font-bold text-[#0e1a14] text-xl'>“Curious mind,<br />
+          <div className='flex-col pt-5 pl-5 pb-10 gap-15 hidden bg-[#d7e8dc] rounded-xl md:flex md:w-70 lg:w-85'>
+            <p className='font-semibold leading-6 text-[#111c16] text-base'>“Curious mind,<br />
               brighter future.”</p>
             <p className='border-2 w-10 border-[#A8C2B3]'></p>
           </div>
         </div>
       </div>
-      <div className='borde flex gap-3 sm:gap-4 md:gap-5 '>
-        <p onClick={() => { setActiveTab('Personal_Details') }} className={` ${(activeTab == 'Personal_Details') ? 'borde border-b-2 border-[#A8C2B3] bg-[#d4e7db]' : 'border border-b-2 border-white bg-white hover:border-b-[#A8C2B3]'} rounded-t-xl p-2 px-1.5 shrink-0 text-[#7c8a85] hover:border-b-2 hover:border-b-[#A8C2B3] text-xs font-semibold md:text-base  md:font-medium`}>Personal Details</p>
-        <p onClick={() => { setActiveTab('Academic_Details') }} className={` ${(activeTab == 'Academic_Details') ? 'border border-b-2 border-[#A8C2B3] bg-[#d4e7db]' : 'border border-b-2 border-white bg-white hover:border-b-[#A8C2B3]'} rounded-t-xl p-2 px-1.5 shrink-0 text-[#7c8a85] hover:border-b-2 hover:border-b-[#A8C2B3] text-xs font-semibold md:text-base  md:font-medium`}>Academic Details</p>
-        <p onClick={() => { setActiveTab('Contact_Information') }} className={` ${(activeTab == 'Contact_Information') ? 'border border-b-2 border-[#A8C2B3] bg-[#d4e7db]' : 'border border-b-2 border-white bg-white hover:border-b-[#A8C2B3]'} rounded-t-xl p-2 px-1.5 shrink-0 text-[#7c8a85] hover:border-b-2 hover:border-b-[#A8C2B3] text-xs font-semibold md:text-base  md:font-medium`}>Contact Information</p>
+      <div className='flex gap-3 sm:gap-4 md:gap-5 '>
+        <p onClick={() => { setActiveTab('Personal_Details') }} className={` ${(activeTab == 'Personal_Details') ? 'border-b-2 border-[#A8C2B3] bg-[#d4e7db] text-[#17231b]' : 'border-b-2 border-white bg-white text-[#77847d] hover:border-b-[#A8C2B3]'} rounded-t-xl p-2 px-1.5 shrink-0 hover:border-b-2 hover:border-b-[#A8C2B3] text-xs font-semibold md:text-[13px] md:font-medium`}>Personal Details</p>
+        <p onClick={() => { setActiveTab('Academic_Details') }} className={` ${(activeTab == 'Academic_Details') ? 'border-b-2 border-[#A8C2B3] bg-[#d4e7db] text-[#17231b]' : 'border-b-2 border-white bg-white text-[#77847d] hover:border-b-[#A8C2B3]'} rounded-t-xl p-2 px-1.5 shrink-0 hover:border-b-2 hover:border-b-[#A8C2B3] text-xs font-semibold md:text-[13px] md:font-medium`}>Academic Details</p>
+        <p onClick={() => { setActiveTab('Contact_Information') }} className={` ${(activeTab == 'Contact_Information') ? 'border-b-2 border-[#A8C2B3] bg-[#d4e7db] text-[#17231b]' : 'border-b-2 border-white bg-white text-[#77847d] hover:border-b-[#A8C2B3]'} rounded-t-xl p-2 px-1.5 shrink-0 hover:border-b-2 hover:border-b-[#A8C2B3] text-xs font-semibold md:text-[13px] md:font-medium`}>Contact Information</p>
       </div>
-      <div className='borde bg-white rounded-xl p-5'>
-        <div className='borde border-blue-400 grid grid-cols-1 md:gap-x-5 grid-rows-8 md:grid-cols-2 md:grid-rows-4 '>
+      <div className='bg-white rounded-xl p-5'>
+        <div className='grid grid-cols-1 md:gap-x-5 grid-rows-8 md:grid-cols-2 md:grid-rows-4 '>
           {(activeTab === 'Personal_Details'
             ? Personal_Details
             : activeTab === 'Academic_Details'
               ? Academic_Details
               : Contact_Information).map((item, index) => {
                 return (
-                  <div key={index} className='borde border-b-2 border-b-[#9fae95] flex justify-between items-center h-13'>
-                    <p className='text-[#7c8a85] borde text-[13px] font-medium'>{Object.keys(item)}</p>
-                    <p className='borde w-50 flex justify-start text-[14px] font-medium'>{Object.values(item)}</p>
+                  <div key={index} className='border-b-2 border-b-[#9fae95] flex justify-between items-center h-13'>
+                    <p className='text-[#77847d] text-xs font-medium md:text-[13px]'>{Object.keys(item)}</p>
+                    <p className='w-50 flex justify-start text-[13px] font-medium text-[#111c16]'>{Object.values(item)}</p>
                   </div>
                 )
               })}
@@ -118,4 +120,3 @@ export default function ProfilePage() {
     </div>
   );
 }
-// 9fae95

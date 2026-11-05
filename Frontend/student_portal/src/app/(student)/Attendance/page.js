@@ -87,7 +87,7 @@ export default function AttendancePage() {
                         return (
                             <div
                                 key={item.title}
-                                className="flex flex-col gap-2 rounded-xl border border-[#edf0e9] bg-white p-3 shadow-lg sm:min-h-[120px] sm:justify-between sm:gap-0 sm:p-5 lg:min-h-0 lg:w-[140px]"
+                                className="flex flex-col gap-2 rounded-xl border border-[#edf0e9] bg-white p-3 shadow-lg sm:min-h-30 sm:justify-between sm:gap-0 sm:p-5 lg:min-h-0 lg:w-35"
                             >
                                 <p className="text-[11px] leading-4 text-[#77847d] sm:text-xs">
                                     <span className="sm:hidden">{item.mobileTitle}</span>

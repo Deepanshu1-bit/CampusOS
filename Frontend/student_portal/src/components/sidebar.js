@@ -44,10 +44,10 @@ export default function Sidebar() {
         key={item.name}
         href={item.href}
         onClick={() => setShowMore(false)}
-        className={` borde  flex h-12 w-auto shrink-0 flex-col items-center justify-center gap-1 rounded-lg px-2 text-[10px] transition-colors lg:h-auto lg:flex-row lg:justify-start lg:gap-3 lg:px-3 lg:py-3 lg:text-[13px]
+        className={`flex h-12 w-auto shrink-0 flex-col items-center justify-center gap-1 rounded-lg px-2 text-[10px] transition-colors lg:h-auto lg:flex-row lg:justify-start lg:gap-3 lg:px-3 lg:py-3 lg:text-[13px]
           ${isActive(item.href)
-            ? "bg-[#a4b49c]  font-semibold text-[#17231b]"
-            : "text-[#5c6a66]    hover:bg-[#e3e9df] hover:text-black"
+            ? "bg-[#a4b49c] font-semibold text-[#17231b]"
+            : "text-[#5c6a66] hover:bg-[#e3e9df] hover:text-black"
           }`}
       >
         <Icon size={17} className="shrink-0" />
@@ -57,7 +57,7 @@ export default function Sidebar() {
   };
 
   return (
-    <aside className=" fixed bottom-0 left-0 z-50 w-full border-t border-[#e4e8df] bg-[#f3f4ec] px-2 py-2 lg:sticky lg:top-0 lg:h-screen lg:w-52 lg:shrink-0 lg:border-r lg:border-t-0 lg:px-4 lg:py-7 xl:w-56">
+    <aside className="fixed bottom-0 left-0 z-50 w-full border-t border-[#e4e8df] bg-[#f3f4ec] px-2 py-2 lg:sticky lg:top-0 lg:h-screen lg:w-52 lg:shrink-0 lg:border-r lg:border-t-0 lg:px-4 lg:py-7 xl:w-56">
 
       {/* Desktop Logo */}
       <Link
@@ -71,19 +71,19 @@ export default function Sidebar() {
       </Link>
 
       {/* Desktop Menu */}
-      <nav className=" hidden flex-col gap-1 lg:flex">
+      <nav className="hidden flex-col gap-1 lg:flex">
         {menuItems.map(renderItem)}
       </nav>
 
       {/* Mobile Menu */}
-      <nav className=" flex items-center justify-around gap-1 lg:hidden">
+      <nav className="flex items-center justify-around gap-1 lg:hidden">
         {menuItems.slice(0, 3).map(renderItem)}
 
         {!showMore && (
           <button
             type="button"
             onClick={() => setShowMore(true)}
-            className=" flex h-12 w-auto flex-col items-center justify-center gap-1 rounded-lg text-[10px] text-[#5c6a66]"
+            className="flex h-12 w-auto flex-col items-center justify-center gap-1 rounded-lg text-[10px] text-[#5c6a66]"
           >
             <Menu size={17} />
             More
@@ -94,7 +94,7 @@ export default function Sidebar() {
           <button
             type="button"
             onClick={() => setShowMore(false)}
-            className=" flex h-12 w-auto flex-col items-center justify-center gap-1 rounded-lg text-[10px] text-[#5c6a66]"
+            className="flex h-12 w-auto flex-col items-center justify-center gap-1 rounded-lg text-[10px] text-[#5c6a66]"
           >
             <X size={17} />
             Less

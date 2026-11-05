@@ -8,13 +8,14 @@ export default function Navbar() {
     <header className="flex h-16 w-full items-center justify-between gap-3 border-b border-[#e7eae3] bg-[#f8f9f5] px-3 sm:px-6 lg:px-8">
 
       {/* Logo */}
-      <div className=" flex justify-center items-center lg:hidden">
+      <div className="flex justify-center items-center lg:hidden">
         <Link href="/Dashboard" className=" flex lg:mb-7 lg:hidden items-center gap-2 ">
           <GraduationCap size={21} fill="#17231b" color="#17231b" />
           <span className="text-[17px] font-bold text-[#17231b]">
             CampusHub
           </span>
-        </Link>      </div>
+        </Link>
+      </div>
       {/* Search */}
       <div className="hidden lg:flex h-10 w-full max-w-sm items-center gap-3 rounded-lg border border-[#e7eae3] bg-white px-3">
         <Search size={16} className="shrink-0 text-[#9aa5a0]" />

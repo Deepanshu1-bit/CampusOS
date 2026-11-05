@@ -18,7 +18,7 @@ const dashboardCards = [
     subtitle: "Attendance",
     icon: CalendarCheck,
     color: "bg-[#d9eee3] text-[#37815d]",
-    route:'/Attendance'
+    route: '/Attendance'
   },
   {
     title: "Pending Assignments",
@@ -27,7 +27,7 @@ const dashboardCards = [
     subtitle: "Pending Assignments",
     icon: ClipboardList,
     color: "bg-[#fff0d5] text-[#b47b20]",
-    route:'/Assignments'
+    route: '/Assignments'
   },
   {
     title: "Upcoming Exams",
@@ -36,7 +36,7 @@ const dashboardCards = [
     subtitle: "Upcoming Exams",
     icon: FileText,
     color: "bg-[#e9e1ff] text-[#8061d6]",
-    route:'/Examination'
+    route: '/Examination'
   },
   {
     title: "New Notices",
@@ -45,7 +45,7 @@ const dashboardCards = [
     subtitle: "New Notices",
     icon: Bell,
     color: "bg-[#dce7ff] text-[#5378c5]",
-    route:'/Notices'
+    route: '/Notices'
   },
 ];
 
@@ -81,26 +81,26 @@ function DashboardCard({ item }) {
 
   return (
     <Link href={item.route}>
-    <div className="border  border-[#edf0e9] rounded-xl  bg-white p-4 shadow-sm sm:p-5">
-      <div className="flex items-start justify-between">
-        <div className={`flex size-8 items-center justify-center rounded-lg ${item.color}`}>
-          <Icon size={16} />
+      <div className="border border-[#edf0e9] rounded-xl bg-white p-4 shadow-sm sm:p-5">
+        <div className="flex items-start justify-between">
+          <div className={`flex size-8 items-center justify-center rounded-lg ${item.color}`}>
+            <Icon size={16} />
+          </div>
+
+          <ArrowUpRight size={15} className="text-[#b8c2bb]" />
         </div>
 
-        <ArrowUpRight size={15} className="text-[#b8c2bb]" />
-      </div>
+        <div className="mt-3">
+          <h3 className="text-2xl font-bold leading-none text-[#111c16]">
+            {item.value}
+            <span className="text-base">{item.suffix}</span>
+          </h3>
 
-      <div className="mt-3">
-        <h3 className="text-2xl font-bold leading-none text-[#111c16]">
-          {item.value}
-          <span className="text-base">{item.suffix}</span>
-        </h3>
-
-        <p className="mt-2 text-[11px] text-[#77847d]">
-          {item.subtitle}
-        </p>
+          <p className="mt-2 text-[11px] text-[#77847d]">
+            {item.subtitle}
+          </p>
+        </div>
       </div>
-    </div>
     </Link>
   );
 }
@@ -187,7 +187,7 @@ export default function Dashboard() {
 
         {/* Campus Image Card */}
         <div className="overflow-hidden rounded-xl bg-[#d6e8dc]">
-          <div className=" relative h-40 w-full sm:h-48 xl:h-40">
+          <div className="relative h-40 w-full sm:h-48 xl:h-40">
             <Image
               src="/cllgimg.png"
               alt="College campus"
@@ -198,7 +198,7 @@ export default function Dashboard() {
           </div>
 
           <div className="px-5 py-4">
-            <h2 className="max-w-[190px] text-lg font-semibold leading-6 text-[#17231b]">
+            <h2 className="max-w-48 text-lg font-semibold leading-6 text-[#17231b]">
               Small steps
               <br />
               every day lead

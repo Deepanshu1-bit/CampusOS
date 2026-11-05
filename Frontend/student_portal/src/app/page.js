@@ -6,7 +6,7 @@ export default function HomePage() {
   return (
     <main className="min-h-screen bg-[#e2e7e1] p-0 sm:p-4 lg:p-6">
 
-      <div className="mx-auto flex min-h-screen w-full max-w-[1100px] flex-col overflow-hidden bg-white shadow-2xl sm:rounded-lg md:min-h-0 lg:flex-row">
+      <div className="mx-auto flex min-h-screen w-full max-w-6xl flex-col overflow-hidden bg-white shadow-2xl sm:rounded-lg md:min-h-0 lg:flex-row">
 
         {/* LEFT PANEL */}
         <section className="flex w-full flex-col bg-[#ced8ca] lg:w-1/2">
@@ -36,7 +36,7 @@ export default function HomePage() {
           </div>
 
           {/* College image */}
-          <div className="relative mt-6 h-[180px] w-full sm:mt-8 sm:h-[220px] md:h-[260px] lg:mt-6 lg:h-[200px] xl:h-[220px]">
+          <div className="relative mt-6 h-45 w-full sm:mt-8 sm:h-55 md:h-65 lg:mt-6 lg:h-50 xl:h-55">
 
             <Image
               src="/cllgimg.png"
@@ -69,7 +69,7 @@ export default function HomePage() {
         </section>
 
         {/* RIGHT PANEL */}
-        <section className="relative z-10 -mt-5 w-full rounded-t-[28px] border border-[#edf0ed] bg-white px-6 py-9 shadow-[0_-8px_25px_rgba(50,70,50,0.08)] sm:-mt-6 sm:rounded-t-[32px] sm:px-10 sm:py-12 md:px-12 lg:mt-0 lg:w-1/2 lg:rounded-none lg:border-0 lg:px-8 lg:py-12 lg:shadow-none xl:px-[5.5%] xl:pt-[70px]">
+        <section className="relative z-10 -mt-5 w-full rounded-t-[28px] border border-[#edf0ed] bg-white px-6 py-9 shadow-[0_-8px_25px_rgba(50,70,50,0.08)] sm:-mt-6 sm:rounded-t-4xl sm:px-10 sm:py-12 md:px-12 lg:mt-0 lg:w-1/2 lg:rounded-none lg:border-0 lg:px-8 lg:py-12 lg:shadow-none xl:px-[5.5%] xl:pt-[70px]">
 
           {/* Heading */}
           <div>
@@ -163,7 +163,7 @@ export default function HomePage() {
 
             {/* Sign In button */}
             <Link href={'/Dashboard'}
-              className="mt-8 h-12 w-full flex justify-center items-center rounded-lg bg-[#819b80] text-sm font-bold text-white transition-colors hover:bg-[#718b70] sm:mt-10 sm:h-[56px]"
+              className="mt-8 h-12 w-full flex justify-center items-center rounded-lg bg-[#819b80] text-sm font-bold text-white transition-colors hover:bg-[#718b70] sm:mt-10 sm:h-14"
             >
               Sign In
             </Link>

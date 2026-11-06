@@ -120,7 +120,6 @@ export default function NoticesPage() {
                     {isOpen && (
                         <>
                             <div className="fixed inset-0 z-10" onClick={() => { setIsOpen(false) }} />
-
                             <div className="absolute right-0 top-full z-20 mt-2 w-40 rounded-lg border border-[#edf0e9] bg-white py-1 shadow-lg">
                                 {Notice_Filters.map((filter) => {
                                     return (
@@ -140,7 +139,7 @@ export default function NoticesPage() {
             </section>
 
             {/* Notices List */}
-            <section className="min-w-0 rounded-xl border border-[#edf0e9] bg-white px-4 py-1 shadow-sm sm:px-5">
+            <section className="min-w-0 rounded-xl border border-[#edf0e9] bg-white px-4 py-1 shadow-xl sm:px-5">
                 {filteredNotices.length === 0 && (
                     <p className="py-8 text-center text-xs text-[#849088]">
                         No notices found
@@ -156,7 +155,7 @@ export default function NoticesPage() {
                             className={`flex items-center gap-3 py-3 sm:gap-4 sm:py-4 ${index !== filteredNotices.length - 1 ? "border-b border-[#edf0e9]" : ""}`}
                         >
                             {/* Icon */}
-                            <div className={`flex size-8 shrink-0 items-center justify-center rounded-lg sm:size-9 ${item.color}`}>
+                            <div className={`shadow-xl flex size-8 shrink-0 items-center justify-center rounded-lg sm:size-9 ${item.color}`}>
                                 <Icon size={15} />
                             </div>
 
@@ -180,7 +179,7 @@ export default function NoticesPage() {
                                     <span className="hidden sm:inline">{item.date}</span>
                                 </p>
 
-                                <div className={`flex w-fit items-center gap-1.5 rounded-full px-2.5 py-1 text-[10px] font-semibold ${item.badge}`}>
+                                <div className={`shadow-xl flex w-fit items-center gap-1.5 rounded-full px-2.5 py-1 text-[10px] font-semibold ${item.badge}`}>
                                     <p className="size-1.5 rounded-full bg-current" />
                                     {item.category}
                                 </div>

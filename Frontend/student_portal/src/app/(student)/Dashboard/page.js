@@ -81,7 +81,7 @@ function DashboardCard({ item }) {
 
   return (
     <Link href={item.route}>
-      <div className="border border-[#edf0e9] rounded-xl bg-white p-4 shadow-sm sm:p-5">
+      <div className="border border-[#edf0e9] rounded-xl bg-white p-4 shadow-xl sm:p-5">
         <div className="flex items-start justify-between">
           <div className={`flex size-8 items-center justify-center rounded-lg ${item.color}`}>
             <Icon size={16} />
@@ -163,7 +163,7 @@ export default function Dashboard() {
       <section className="mt-4 grid grid-cols-1 gap-4 xl:grid-cols-[minmax(0,1fr)_250px]">
 
         {/* Upcoming List */}
-        <div className="min-w-0 rounded-xl border border-[#edf0e9] bg-white p-4 shadow-sm sm:p-5">
+        <div className="min-w-0 rounded-xl border border-[#edf0e9] bg-white p-4 shadow-xl sm:p-5">
           <div className="mb-2 flex items-center justify-between">
             <h2 className="text-sm font-semibold text-[#17231b]">
               Upcoming This Week
@@ -186,7 +186,7 @@ export default function Dashboard() {
         </div>
 
         {/* Campus Image Card */}
-        <div className="overflow-hidden rounded-xl bg-[#d6e8dc]">
+        <div className="overflow-hidden rounded-xl bg-[#d6e8dc] shadow-xl">
           <div className="relative h-40 w-full sm:h-48 xl:h-40">
             <Image
               src="/cllgimg.png"

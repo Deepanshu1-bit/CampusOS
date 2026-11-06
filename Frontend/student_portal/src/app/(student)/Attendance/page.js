@@ -40,21 +40,14 @@ export default function AttendancePage() {
                 </div>
 
                 <div className="flex shrink-0 items-center gap-6 rounded-lg border border-[#edf0e9] bg-white px-4 py-3 text-xs font-semibold text-[#2c4a8a] shadow-sm sm:gap-8">
-                    <select defaultValue="Semester 5" className="sm:hidden">
-                        <option>Semester 1</option>
-                        <option>Semester 2</option>
-                        <option>Semester 3</option>
-                        <option>Semester 4</option>
-                        <option>Semester 5</option>
-                        <option>Semester 6</option></select>
-                    <select defaultValue="Semester 5" className="hidden sm:inline">
+                    <select defaultValue="Semester 5">
                         <option>Semester 1</option>
                         <option>Semester 2</option>
                         <option>Semester 3</option>
                         <option>Semester 4</option>
                         <option>Semester 5</option>
                         <option>Semester 6</option>
-                    </select>
+                    </select>   
                 </div>
             </section>
 
@@ -71,7 +64,7 @@ export default function AttendancePage() {
                         {Overall_Attendance.percentage}%
                     </h2>
 
-                    <div className="mt-5 flex w-fit items-center gap-1.5 rounded-full bg-[#d9eee3] px-2.5 py-1 text-[10px] font-semibold text-[#347653]">
+                    <div className="mt-5 flex w-fit items-center gap-1.5 shadow-xl rounded-full bg-[#d9eee3] px-2.5 py-1 text-[10px] font-semibold text-[#347653]">
                         <p className="size-1.5 rounded-full bg-[#37815d]" />
                         {Overall_Attendance.status}
                     </div>
@@ -104,7 +97,7 @@ export default function AttendancePage() {
             </section>
 
             {/* Subject-wise Attendance */}
-            <section className="min-w-0 rounded-xl border border-[#edf0e9] bg-white p-4 shadow-sm sm:p-5">
+            <section className="min-w-0 rounded-xl border border-[#edf0e9] bg-white p-4 shadow-xl sm:p-5">
                 <h2 className="text-base font-semibold text-[#17231b] sm:text-sm">
                     Subject-wise<span className="hidden sm:inline"> Attendance</span>
                 </h2>

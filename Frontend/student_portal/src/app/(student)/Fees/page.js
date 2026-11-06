@@ -50,7 +50,7 @@ export default function FeesPage() {
           return (
             <div
               key={item.title}
-              className="rounded-xl border border-[#edf0e9] bg-white p-4 shadow-sm sm:p-5"
+              className="rounded-xl border border-[#edf0e9] bg-white p-4 shadow-xl sm:p-5"
             >
               <p className="text-[11px] text-[#77847d] sm:text-xs">
                 <span className="sm:hidden">{item.mobileTitle}</span>
@@ -65,7 +65,7 @@ export default function FeesPage() {
         })}
 
         {/* Payment Status Card */}
-        <div className="rounded-xl border border-[#edf0e9] bg-white p-4 shadow-sm sm:p-5">
+        <div className="rounded-xl border border-[#edf0e9] bg-white p-4 shadow-xl sm:p-5">
           <p className="text-[11px] text-[#77847d] sm:text-xs">
             <span className="sm:hidden">{Payment_Status.mobileTitle}</span>
             <span className="hidden sm:inline">{Payment_Status.title}</span>
@@ -80,7 +80,7 @@ export default function FeesPage() {
       </section>
 
       {/* Payment History */}
-      <section className="min-w-0 rounded-xl border border-[#edf0e9] bg-white p-4 shadow-sm sm:p-5">
+      <section className="min-w-0 rounded-xl border border-[#edf0e9] bg-white p-4 shadow-xl sm:p-5">
         <h2 className="text-base font-semibold text-[#17231b] sm:text-sm">
           Payment History
         </h2>
@@ -139,7 +139,6 @@ export default function FeesPage() {
           </div>
         </div>
       </section>
-
     </div>
   );
 }

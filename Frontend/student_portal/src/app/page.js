@@ -21,7 +21,7 @@ export default function HomePage() {
                 fill="#111111"
                 className="shrink-0 sm:size-10"
               />
-              CampusHub
+              CampusOS
             </h1>
 
             <h2 className="mb-3 text-xl font-bold leading-tight text-black sm:text-2xl md:text-[26px] xl:text-[27px]">

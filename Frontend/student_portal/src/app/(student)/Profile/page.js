@@ -35,8 +35,8 @@ export default function ProfilePage() {
     { Emergency_Contact: "+91 98765 43211" },
     { Guardian_Name: "Rajesh Sharma" }
   ];
-
-  const [activeTab, setActiveTab] = useState('Personal_Details')
+  const filters = ['Personal Details', 'Academic Details', 'Contact Information']
+  const [activeTab, setActiveTab] = useState('Personal Details')
 
   return (
     <div className="min-h-screen bg-[#f3f5f1] flex flex-col gap-5 w-full shrink-0 px-4 pt-7 pb-20 sm:px-6 lg:px-8 lg:py-7 overflow-hidden">
@@ -84,10 +84,13 @@ export default function ProfilePage() {
           </div>
         </div>
       </div>
-      <div className='flex gap-3 sm:gap-4 md:gap-5 '>
-        <p onClick={() => { setActiveTab('Personal_Details') }} className={` ${(activeTab == 'Personal_Details') ? 'border-b-2 border-[#A8C2B3] bg-[#d4e7db] shadow-xl text-[#17231b]' : 'border-b-2 border-white bg-white text-[#77847d] hover:border-b-[#A8C2B3]'} rounded-t-xl p-2 px-1.5 shrink-0 hover:border-b-2 hover:border-b-[#A8C2B3] text-xs font-semibold md:text-[13px] md:font-medium`}>Personal Details</p>
-        <p onClick={() => { setActiveTab('Academic_Details') }} className={` ${(activeTab == 'Academic_Details') ? 'border-b-2 border-[#A8C2B3] bg-[#d4e7db] shadow-xl text-[#17231b]' : 'border-b-2 border-white bg-white text-[#77847d] hover:border-b-[#A8C2B3]'} rounded-t-xl p-2 px-1.5 shrink-0 hover:border-b-2 hover:border-b-[#A8C2B3] text-xs font-semibold md:text-[13px] md:font-medium`}>Academic Details</p>
-        <p onClick={() => { setActiveTab('Contact_Information') }} className={` ${(activeTab == 'Contact_Information') ? 'border-b-2 border-[#A8C2B3] bg-[#d4e7db] shadow-xl text-[#17231b]' : 'border-b-2 border-white bg-white text-[#77847d] hover:border-b-[#A8C2B3]'} rounded-t-xl p-2 px-1.5 shrink-0 hover:border-b-2 hover:border-b-[#A8C2B3] text-xs font-semibold md:text-[13px] md:font-medium`}>Contact Information</p>
+      <div className='flex gap-3 sm:gap-4 md:gap-5'>{filters.map((item, index) => {
+        return (
+          <div key={index} className=''>
+            <p onClick={() => { setActiveTab(item) }} className={`${(activeTab == item) ? 'border-b-2 border-[#A8C2B3] bg-[#d4e7db] shadow-xl text-[#17231b]' : 'border-b-2 border-white bg-white text-[#77847d] hover:border-b-[#A8C2B3]'} rounded-t-xl p-2 px-1.5 shrink-0 hover:border-b-2 hover:border-b-[#A8C2B3] cursor-pointer text-xs font-semibold md:text-[13px] md:font-medium`}>{item}</p>
+          </div>
+        )
+      })}
       </div>
       <div className='bg-white rounded-xl p-5 shadow-xl'>
         <div className='grid grid-cols-1 md:gap-x-5 grid-rows-8 md:grid-cols-2 md:grid-rows-4 '>

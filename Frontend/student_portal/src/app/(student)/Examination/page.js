@@ -102,7 +102,7 @@ export default function Examination() {
         <div className="min-h-screen bg-[#f3f5f1] flex flex-col gap-5 px-4 pt-7 pb-20 sm:px-6 lg:px-8 lg:py-7">
             <section className="flex items-start justify-between gap-3">
                 <div>
-                    <h1 className="text-2xl font-bold text-[#111c16] sm:text-2xl">
+                    <h1 className="text-2xl font-bold text-[#111c16]">
                         Examination
                     </h1>
 
@@ -114,7 +114,7 @@ export default function Examination() {
                 {/* Filter Dropdown */}
                 <div className="relative shrink-0">
                     <button onClick={() => { setIsOpen(!isOpen) }}
-                        className="flex items-center gap-6 rounded-lg border border-white bg-white px-4 py-3 text-xs font-semibold text-[#17231b] shadow-sm sm:min-w-34 sm:justify-between">
+                        className="flex cursor-pointer items-center gap-6 rounded-lg border border-white bg-white px-4 py-3 text-xs font-semibold text-[#17231b] shadow-sm sm:min-w-34 sm:justify-between">
                         <span className="text-black">{activeFilter}</span>
                         <ChevronDown size={14} className={`text-[#849088] transition-transform ${isOpen ? "rotate-180" : ""}`} />
                     </button>
@@ -128,7 +128,7 @@ export default function Examination() {
                                     return (
                                         <button key={index}
                                             onClick={() => { setActiveFilter(item.semester), setIsOpen(false) }}
-                                            className={`block py-1 w-full px-7 hover:bg-[#f3f5f1] ${item.semester === activeFilter ? "bg-[#f3f5f1] font-semibold text-[#17231b]" : "font-medium text-[#77847d]"}`}>
+                                            className={`block cursor-pointer py-1 w-full px-7 hover:bg-[#f3f5f1] ${item.semester === activeFilter ? "bg-[#f3f5f1] font-semibold text-[#17231b]" : "font-medium text-[#77847d]"}`}>
                                             {item.semester}{console.log(activeFilter)}
                                         </button>
                                     )
@@ -179,7 +179,7 @@ export default function Examination() {
                         </span>
                     </div>
                     {/* upcoming Exam Heading */}
-                    <div className="bg-white p-2 sm:p-5 rounded flex flex-col gap-2 shadow-xl">
+                    <div className="bg-white p-2 sm:p-5 rounded-lg flex flex-col gap-2 shadow-xl">
                         <h1 className="rounded-xl px-2 py-1 bg-[#f3f5f1] flex justify-between font-semibold text-[#5c6a66]">{upcomingExamHeading.map((item, index) => {
                             return (<span key={index} className="sm:flex sm:w-full sm:py-1">{item}</span>
                             )
@@ -188,12 +188,12 @@ export default function Examination() {
                             {upcomingExam.map((item, index) => {
                                 return (
                                     <div key={index} className={`ml-2 flex justify-between ${index !== upcomingExam.length - 1 ? "border-b-2 border-[#edf0e9]" : ""}`}>
-                                        <div className="flex w-full text-[#37453d] text-[10px] font-medium sm:text-sm py-2">{item.Date}</div>
-                                        <div className="flex w-full text-[#37453d] text-[10px] font-medium sm:text-sm py-2">{item.Subject}</div>
-                                        <div className="flex w-full text-[#37453d] text-[10px] font-medium sm:text-sm py-2">{item.Time}</div>
-                                        <div className="flex w-full text-[#37453d] text-[10px] font-medium sm:text-sm py-2">{item.Venue}</div>
-                                        <div className="flex justify-center items-center w-full text-[#37453d] text-[8px] font-medium sm:justify-start sm:text-sm sm:py-2">
-                                            <p className="w-fit rounded-2xl px-2 py-1 text-blue-800 bg-blue-200">
+                                        <div className="flex w-full text-[#37453d] text-xs sm:text-sm font-medium py-2">{item.Date}</div>
+                                        <div className="flex w-full text-[#37453d] text-xs sm:text-sm font-medium py-2">{item.Subject}</div>
+                                        <div className="flex w-full text-[#37453d] text-xs sm:text-sm font-medium py-2">{item.Time}</div>
+                                        <div className="flex w-full text-[#37453d] text-xs sm:text-sm font-medium py-2">{item.Venue}</div>
+                                        <div className="flex justify-center items-center w-full text-[#37453d] text-xs font-medium sm:justify-start sm:py-2">
+                                            <p className="w-fit rounded-full px-2.5 py-1 text-[11px] sm:text-xs font-semibold text-blue-700 bg-blue-50 border border-blue-100">
                                                 {item.Status}
                                             </p>
                                         </div>

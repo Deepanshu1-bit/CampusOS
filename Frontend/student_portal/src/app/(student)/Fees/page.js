@@ -38,7 +38,7 @@ export default function FeesPage() {
           </p>
         </div>
 
-        <button className="flex shrink-0 items-center justify-center rounded-lg bg-transparent p-1 text-[#849088] sm:border-2 sm:border-[#e3e6df] sm:bg-white sm:px-4 sm:py-3 sm:text-xs sm:font-semibold sm:text-[#111c16] sm:shadow-sm">
+        <button className="flex shrink-0 cursor-pointer items-center justify-center rounded-lg bg-transparent p-1 text-[#849088] sm:border-2 sm:border-[#e3e6df] sm:bg-white sm:px-4 sm:py-3 sm:text-xs sm:font-semibold sm:text-[#111c16] sm:shadow-sm">
           <FileText size={20} className="sm:hidden" />
           <span className="hidden sm:inline">View Fee Structure</span>
         </button>
@@ -92,7 +92,7 @@ export default function FeesPage() {
             <div className="hidden grid-cols-[1fr_1.5fr_1fr_1fr_1fr] items-center rounded-lg bg-[#f3f5f1] px-3 py-3 sm:grid sm:px-4">
               {Table_Headings.map((heading) => {
                 return (
-                  <p key={heading} className="text-[11px] font-semibold text-[#77847d] sm:text-xs">
+                  <p key={heading} className="text-[11px] font-semibold text-[#77847d] sm:text-sm">
                     {heading}
                   </p>
                 )
@@ -130,7 +130,7 @@ export default function FeesPage() {
                   </div>
 
                   {/* Receipt - desktop */}
-                  <button className="hidden w-fit rounded-md bg-[#d9eee3] px-3 py-1.5 text-[10px] font-semibold text-[#347653] hover:bg-[#cde6d7] sm:block">
+                  <button className="hidden w-fit rounded-md bg-[#d9eee3] px-3 py-1.5 text-[10px] font-semibold text-[#347653] transition-colors cursor-pointer hover:bg-[#cde6d7] sm:block">
                     View
                   </button>
                 </div>

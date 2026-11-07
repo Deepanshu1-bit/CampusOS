@@ -66,7 +66,7 @@ export default function Sidebar() {
       >
         <GraduationCap size={21} fill="#17231b" color="#17231b" />
         <span className="text-[17px] font-bold text-[#17231b]">
-          CampusHub
+          CampusOS
         </span>
       </Link>
 

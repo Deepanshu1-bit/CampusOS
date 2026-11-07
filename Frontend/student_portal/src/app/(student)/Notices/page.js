@@ -110,7 +110,7 @@ export default function NoticesPage() {
                 <div className="relative shrink-0">
                     <button
                         onClick={() => { setIsOpen(!isOpen) }}
-                        className="flex items-center gap-6 rounded-lg border border-[#edf0e9] bg-white px-4 py-3 text-xs font-semibold text-[#17231b] shadow-sm sm:min-w-34 sm:justify-between"
+                        className="flex cursor-pointer items-center gap-6 rounded-lg border border-[#edf0e9] bg-white px-4 py-3 text-xs font-semibold text-[#17231b] shadow-sm sm:min-w-34 sm:justify-between"
                     >
                         <span className="sm:hidden">{selectedFilter.mobileLabel}</span>
                         <span className="hidden sm:inline">{selectedFilter.label}</span>
@@ -126,7 +126,7 @@ export default function NoticesPage() {
                                         <button
                                             key={filter.value}
                                             onClick={() => { setActiveFilter(filter.value); setIsOpen(false) }}
-                                            className={`block w-full px-4 py-2 text-left text-xs hover:bg-[#f3f5f1] ${activeFilter === filter.value ? "bg-[#f3f5f1] font-semibold text-[#17231b]" : "font-medium text-[#77847d]"}`}
+                                            className={`block cursor-pointer w-full px-4 py-2 text-left text-xs hover:bg-[#f3f5f1] ${activeFilter === filter.value ? "bg-[#f3f5f1] font-semibold text-[#17231b]" : "font-medium text-[#77847d]"}`}
                                         >
                                             {filter.label}
                                         </button>

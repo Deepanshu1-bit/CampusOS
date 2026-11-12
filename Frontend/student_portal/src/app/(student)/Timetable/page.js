@@ -58,34 +58,34 @@ export default function Timetable() {
 
     return (
 
-        <div className="min-h-screen bg-[#f3f5f1] flex flex-col gap-5 px-4 pt-7 pb-20 sm:px-6 lg:px-8 lg:py-7">
+        <div className="min-h-screen bg-[#f3f5f1] dark:bg-[#111c16] flex flex-col gap-5 px-4 pt-7 pb-20 sm:px-6 lg:px-8 lg:py-7">
 
             {/* Main Heading */}
             <section className="flex items-start justify-between gap-3">
                 <div>
-                    <h1 className="text-2xl font-bold text-[#111c16]">
+                    <h1 className="text-2xl font-bold text-[#111c16] dark:text-[#f3f5f1]">
                         Timetable
                     </h1>
-                    <p className="mt-1 text-sm text-[#849088]">
+                    <p className="mt-1 text-sm text-[#849088] dark:text-[#aab8ae]">
                         Your class schedule for the week
                     </p>
                 </div>
             </section>
 
             {/* Timetable Container */}
-            <div className="border border-[#edf0e9] rounded-lg bg-[#f3f5f1] shadow-lg md:bg-white p-3">
+            <div className="border border-[#edf0e9] dark:border-[#34443a] rounded-lg bg-[#f3f5f1] dark:bg-[#1c2921] shadow-lg md:bg-white md:dark:bg-[#1c2921] p-3">
                 {/* Days Header */}
-                <div className="flex justify-between rounded-lg gap-2 md:gap-0 bg-[#f3f4ec]">
+                <div className="flex justify-between rounded-lg gap-2 md:gap-0 bg-[#f3f4ec] dark:bg-[#1c2921]">
                     {/* Time Heading - Desktop Only */}
-                    <div className="hidden md:flex justify-center items-center w-full pl-10 p-2 text-sm font-semibold text-[#77847d]">
+                    <div className="hidden md:flex justify-center items-center w-full pl-10 p-2 text-sm font-semibold text-[#77847d] dark:text-[#aab8ae]">
                         Time
                     </div>
                     {/* Days */}
                     {Days.map((day) => (
                         <button key={day} onClick={() => setActiveTab(day)} className={`flex justify-center items-center w-full p-2 rounded-lg md:rounded-none text-sm font-semibold transition-colors
                             ${activeTab === day
-                                ? 'bg-[#dce9df] text-[#344b3c] md:text-[#77847d] md:bg-transparent'
-                                : 'bg-white text-[#77847d] md:bg-transparent'
+                                ? 'bg-[#dce9df] dark:bg-[#344b3b] text-[#344b3c] dark:text-[#b8e0c3] md:text-[#77847d] md:dark:text-[#aab8ae] md:bg-transparent md:dark:bg-transparent'
+                                : 'bg-white dark:bg-[#1c2921] text-[#77847d] dark:text-[#aab8ae] md:bg-transparent md:dark:bg-transparent'
                             }`}>
                             {day}
                         </button>
@@ -95,20 +95,20 @@ export default function Timetable() {
                 {/* DESKTOP TIMETABLE */}
                 <div className="hidden md:block mt-3">
                     {timetableData.map((item, index) => (
-                        <div key={index} className="border-b border-[#edf0e9] flex justify-between py-2 gap-2">
+                        <div key={index} className="border-b border-[#edf0e9] dark:border-[#34443a] flex justify-between py-2 gap-2">
                             {/* Time */}
-                            <div className="w-full flex items-center pl-10 text-sm font-semibold text-[#77847d]">
+                            <div className="w-full flex items-center pl-10 text-sm font-semibold text-[#77847d] dark:text-[#aab8ae]">
                                 {item.time}
                             </div>
                             {/* Break */}
                             {item.isBreak ? (
-                                <div className="w-full min-h-16 flex justify-center items-center rounded-lg bg-[#f3f4ec] font-semibold text-sm text-[#77847d]">
+                                <div className="w-full min-h-16 flex justify-center items-center rounded-lg bg-[#f3f4ec] dark:bg-[#26352d] font-semibold text-sm text-[#77847d] dark:text-[#aab8ae]">
                                     Break
                                 </div>
                             ) : (
                                 /* Subjects for all days */
                                 Days.map((day) => (
-                                    <div key={day} className={`w-full min-h-16 flex justify-center items-center rounded-lg font-semibold text-sm ${item[day].color}`}>
+                                    <div key={day} className={`w-full min-h-16 flex justify-center dark:text-[#849589] items-center rounded-lg font-semibold text-sm ${item[day].color}`}>
                                         {item[day].subject}
                                     </div>
                                 ))
@@ -117,23 +117,23 @@ export default function Timetable() {
                     ))}
                 </div>
                 {/* MOBILE TIMETABLE */}
-                <div className="rounded-lg bg-white md:hidden mt-3 px-5">
+                <div className="rounded-lg bg-white dark:bg-[#1c2921] md:hidden mt-3 px-5">
                     {timetableData.map((item, index) => {
                         const selectedDay = item[activeTab];
                         return (
-                            <div key={index} className="border-b border-[#edf0e9] flex items-center gap-3 py-3">
+                            <div key={index} className="border-b border-[#edf0e9] dark:border-[#34443a] flex items-center gap-3 py-3">
                                 {/* Time */}
-                                <div className="shrink-0 text-xs font-semibold text-[#77847d] w-24">
+                                <div className="shrink-0 text-xs font-semibold text-[#77847d] dark:text-[#aab8ae] w-24">
                                     {item.time}
                                 </div>
                                 {/* Break */}
                                 {item.isBreak ? (
-                                    <div className="w-full flex justify-center items-center rounded-lg bg-[#f3f4ec] py-4 text-sm font-semibold text-[#77847d]">
+                                    <div className="w-full flex justify-center items-center rounded-lg bg-[#f3f4ec] dark:bg-[#26352d] py-4 text-sm font-semibold text-[#77847d] dark:text-[#aab8ae]">
                                         Break
                                     </div>
                                 ) : (
                                     // Selected Day Subject 
-                                    <div className={`w-full flex justify-center items-center rounded-lg py-4 text-sm font-semibold ${selectedDay.color}`}>
+                                    <div className={`w-full flex justify-center items-center rounded-lg dark:text-[#aab8ae] py-4 text-sm font-semibold ${selectedDay.color}`}>
                                         {selectedDay.subject}
                                     </div>
                                 )}

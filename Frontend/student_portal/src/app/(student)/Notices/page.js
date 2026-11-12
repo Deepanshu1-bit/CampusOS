@@ -1,3 +1,4 @@
+
 'use client'
 import { ChevronDown, Volume2, BookOpen, FileText, CircleHelp, CalendarCheck } from "lucide-react";
 import { useState } from "react";
@@ -91,16 +92,16 @@ export default function NoticesPage() {
         : Notice_List.filter((item) => item.category === activeFilter);
 
     return (
-        <div className="min-h-screen bg-[#f3f5f1] flex flex-col gap-5 px-4 pt-7 pb-20 sm:px-6 lg:px-8 lg:py-7">
+        <div className="min-h-screen bg-[#f3f5f1] dark:bg-[#111c16] flex flex-col gap-5 px-4 pt-7 pb-20 sm:px-6 lg:px-8 lg:py-7">
 
             {/* Heading */}
             <section className="flex items-start justify-between gap-3">
                 <div>
-                    <h1 className="text-2xl font-bold text-[#111c16] sm:text-2xl">
+                    <h1 className="text-2xl font-bold text-[#111c16] dark:text-[#f3f5f1] sm:text-2xl">
                         Notices
                     </h1>
 
-                    <p className="mt-1 text-sm text-[#849088]">
+                    <p className="mt-1 text-sm text-[#849088] dark:text-[#aab8ae]">
                         <span className="sm:hidden">Important announcements</span>
                         <span className="hidden sm:inline">Stay updated with important announcements</span>
                     </p>
@@ -110,23 +111,23 @@ export default function NoticesPage() {
                 <div className="relative shrink-0">
                     <button
                         onClick={() => { setIsOpen(!isOpen) }}
-                        className="flex cursor-pointer items-center gap-6 rounded-lg border border-[#edf0e9] bg-white px-4 py-3 text-xs font-semibold text-[#17231b] shadow-sm sm:min-w-34 sm:justify-between"
+                        className="flex cursor-pointer items-center gap-6 rounded-lg border border-[#edf0e9] dark:border-[#34443a] bg-white dark:bg-[#1c2921] px-4 py-3 text-xs font-semibold text-[#17231b] dark:text-[#f3f5f1] shadow-sm sm:min-w-34 sm:justify-between"
                     >
                         <span className="sm:hidden">{selectedFilter.mobileLabel}</span>
                         <span className="hidden sm:inline">{selectedFilter.label}</span>
-                        <ChevronDown size={14} className={`text-[#849088] transition-transform ${isOpen ? "rotate-180" : ""}`} />
+                        <ChevronDown size={14} className={`text-[#849088] dark:text-[#aab8ae] transition-transform ${isOpen ? "rotate-180" : ""}`} />
                     </button>
 
                     {isOpen && (
                         <>
                             <div className="fixed inset-0 z-10" onClick={() => { setIsOpen(false) }} />
-                            <div className="absolute right-0 top-full z-20 mt-2 w-40 rounded-lg border border-[#edf0e9] bg-white py-1 shadow-lg">
+                            <div className="absolute right-0 top-full z-20 mt-2 w-40 rounded-lg border border-[#edf0e9] dark:border-[#34443a] bg-white dark:bg-[#1c2921] py-1 shadow-lg">
                                 {Notice_Filters.map((filter) => {
                                     return (
                                         <button
                                             key={filter.value}
                                             onClick={() => { setActiveFilter(filter.value); setIsOpen(false) }}
-                                            className={`block cursor-pointer w-full px-4 py-2 text-left text-xs hover:bg-[#f3f5f1] ${activeFilter === filter.value ? "bg-[#f3f5f1] font-semibold text-[#17231b]" : "font-medium text-[#77847d]"}`}
+                                            className={`block cursor-pointer w-full px-4 py-2 text-left text-xs hover:bg-[#f3f5f1] dark:hover:bg-[#26352d] ${activeFilter === filter.value ? "bg-[#f3f5f1] dark:bg-[#26352d] font-semibold text-[#17231b] dark:text-[#f3f5f1]" : "font-medium text-[#77847d] dark:text-[#aab8ae]"}`}
                                         >
                                             {filter.label}
                                         </button>
@@ -139,9 +140,9 @@ export default function NoticesPage() {
             </section>
 
             {/* Notices List */}
-            <section className="min-w-0 rounded-xl border border-[#edf0e9] bg-white px-4 py-1 shadow-xl sm:px-5">
+            <section className="min-w-0 rounded-xl border border-[#edf0e9] dark:border-[#34443a] bg-white dark:bg-[#1c2921] px-4 py-1 shadow-xl sm:px-5">
                 {filteredNotices.length === 0 && (
-                    <p className="py-8 text-center text-xs text-[#849088]">
+                    <p className="py-8 text-center text-xs text-[#849088] dark:text-[#aab8ae]">
                         No notices found
                     </p>
                 )}
@@ -152,7 +153,7 @@ export default function NoticesPage() {
                     return (
                         <div
                             key={item.id}
-                            className={`flex items-center gap-3 py-3 sm:gap-4 sm:py-4 ${index !== filteredNotices.length - 1 ? "border-b border-[#edf0e9]" : ""}`}
+                            className={`flex items-center gap-3 py-3 sm:gap-4 sm:py-4 ${index !== filteredNotices.length - 1 ? "border-b border-[#edf0e9] dark:border-[#34443a]" : ""}`}
                         >
                             {/* Icon */}
                             <div className={`shadow-xl flex size-8 shrink-0 items-center justify-center rounded-lg sm:size-9 ${item.color}`}>
@@ -161,12 +162,12 @@ export default function NoticesPage() {
 
                             {/* Title + Description */}
                             <div className="min-w-0 flex-1">
-                                <h4 className="truncate text-sm font-semibold text-[#17231b] sm:text-[13px]">
+                                <h4 className="truncate text-sm font-semibold text-[#17231b] dark:text-[#f3f5f1] sm:text-[13px]">
                                     <span className="sm:hidden">{item.mobileTitle}</span>
                                     <span className="hidden sm:inline">{item.title}</span>
                                 </h4>
 
-                                <p className="mt-1 truncate text-[11px] text-[#849088]">
+                                <p className="mt-1 truncate text-[11px] text-[#849088] dark:text-[#aab8ae]">
                                     <span className="sm:hidden">{item.mobileDescription}</span>
                                     <span className="hidden sm:inline">{item.description}</span>
                                 </p>
@@ -174,7 +175,7 @@ export default function NoticesPage() {
 
                             {/* Date + Badge */}
                             <div className="flex shrink-0 flex-col items-end gap-1 sm:flex-row sm:items-center sm:gap-6">
-                                <p className="text-[11px] text-[#77847d] sm:text-xs">
+                                <p className="text-[11px] text-[#77847d] dark:text-[#aab8ae] sm:text-xs">
                                     <span className="sm:hidden">{item.mobileDate}</span>
                                     <span className="hidden sm:inline">{item.date}</span>
                                 </p>

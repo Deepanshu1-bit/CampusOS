@@ -81,22 +81,22 @@ function DashboardCard({ item }) {
 
   return (
     <Link href={item.route}>
-      <div className="border border-[#edf0e9] rounded-xl bg-white p-4 shadow-xl sm:p-5">
+      <div className="border border-[#edf0e9] dark:border-[#34443a] rounded-xl bg-white dark:bg-[#1c2921] p-4 shadow-xl">
         <div className="flex items-start justify-between">
           <div className={`flex size-8 items-center justify-center rounded-lg ${item.color}`}>
             <Icon size={16} />
           </div>
 
-          <ArrowUpRight size={15} className="text-[#b8c2bb]" />
+          <ArrowUpRight size={15} className="text-[#b8c2bb] dark:text-[#84968a]" />
         </div>
 
         <div className="mt-3">
-          <h3 className="text-2xl font-bold leading-none text-[#111c16]">
+          <h3 className="text-2xl font-bold leading-none text-[#111c16] dark:text-[#f3f5f1]">
             {item.value}
             <span className="text-base">{item.suffix}</span>
           </h3>
 
-          <p className="mt-2 text-[11px] text-[#77847d]">
+          <p className="mt-2 text-[11px] text-[#77847d] dark:text-[#aab8ae]">
             {item.subtitle}
           </p>
         </div>
@@ -109,17 +109,17 @@ function UpcomingItem({ item, index }) {
   const Icon = item.icon;
 
   return (
-    <div className={`flex items-center gap-3 py-3 ${index !== 2 ? "border-b border-[#edf0e9]" : ""}`}>
+    <div className={`flex items-center gap-3 py-3 ${index !== 2 ? "border-b border-[#edf0e9] dark:border-[#34443a]" : ""}`}>
       <div className={`flex size-8 shrink-0 items-center justify-center rounded-lg ${item.color}`}>
         <Icon size={15} />
       </div>
 
       <div className=" min-w-0 flex-1">
-        <h4 className="truncate text-xs font-semibold text-[#17231b]">
+        <h4 className="truncate text-xs font-semibold text-[#17231b] dark:text-[#f3f5f1]">
           {item.title}
         </h4>
 
-        <p className="mt-1 text-[10px] text-[#849088]">
+        <p className="mt-1 text-[10px] text-[#849088] dark:text-[#aab8ae]">
           {item.date}
         </p>
       </div>
@@ -133,21 +133,21 @@ function UpcomingItem({ item, index }) {
 
 export default function Dashboard() {
   return (
-    <div className=" min-h-screen bg-[#f3f5f1] px-4 pt-7 pb-20 sm:px-6 lg:px-8 lg:py-7">
+    <div className=" min-h-screen bg-[#f3f5f1] dark:bg-[#111c16] px-4 pt-7 pb-20 sm:px-6 lg:px-8 lg:py-7">
 
       {/* Greeting */}
       <section className="mb-5 flex flex-wrap items-start justify-between gap-3">
         <div>
-          <h1 className="text-xl font-bold text-[#111c16] sm:text-2xl">
+          <h1 className="text-xl font-bold text-[#111c16] dark:text-[#f3f5f1] sm:text-2xl">
             Good morning, Priya!
           </h1>
 
-          <p className="mt-1 text-xs text-[#849088]">
+          <p className="mt-1 text-xs text-[#849088] dark:text-[#aab8ae]">
             Keep going — great things take time.
           </p>
         </div>
 
-        <p className="hidden pt-1 text-[10px] text-[#849088] sm:block">
+        <p className="hidden pt-1 text-[10px] text-[#849088] dark:text-[#aab8ae] sm:block">
           Thu, 24 Apr 2025
         </p>
       </section>
@@ -163,13 +163,13 @@ export default function Dashboard() {
       <section className="mt-4 grid grid-cols-1 gap-4 xl:grid-cols-[minmax(0,1fr)_250px]">
 
         {/* Upcoming List */}
-        <div className="min-w-0 rounded-xl border border-[#edf0e9] bg-white p-4 shadow-xl sm:p-5">
+        <div className="min-w-0 rounded-xl border border-[#edf0e9] dark:border-[#34443a] bg-white dark:bg-[#1c2921] p-4 shadow-xl sm:p-5">
           <div className="mb-2 flex items-center justify-between">
-            <h2 className="text-sm font-semibold text-[#17231b]">
+            <h2 className="text-sm font-semibold text-[#17231b] dark:text-[#f3f5f1]">
               Upcoming This Week
             </h2>
 
-            <button className="text-[10px] font-medium text-[#66816d] hover:underline">
+            <button className="text-[10px] font-medium text-[#66816d] dark:text-[#a4c5a9] hover:underline">
               View all
             </button>
           </div>
@@ -186,19 +186,13 @@ export default function Dashboard() {
         </div>
 
         {/* Campus Image Card */}
-        <div className="overflow-hidden rounded-xl bg-[#d6e8dc] shadow-xl">
+        <div className="overflow-hidden rounded-xl bg-[#d6e8dc] dark:bg-[#263b2e] shadow-xl">
           <div className="relative h-40 w-full sm:h-48 xl:h-40">
-            <Image
-              src="/cllgimg.png"
-              alt="College campus"
-              fill
-              sizes="(max-width: 1280px) 100vw, 250px"
-              className="object-cover"
-            />
+            <Image src="/cllgimg.png" alt="College campus" fill sizes="(max-width: 1280px) 100vw, 250px" className="object-cover"/>
           </div>
 
           <div className="px-5 py-4">
-            <h2 className="max-w-48 text-lg font-semibold leading-6 text-[#17231b]">
+            <h2 className="max-w-48 text-lg font-semibold leading-6 text-[#17231b] dark:text-[#f3f5f1]">
               Small steps
               <br />
               every day lead
@@ -206,7 +200,7 @@ export default function Dashboard() {
               to big results.
             </h2>
 
-            <div className="mt-3 h-0.5 w-5 bg-[#879b8d]" />
+            <div className="mt-3 h-0.5 w-5 bg-[#879b8d] dark:bg-[#8cae96]" />
           </div>
         </div>
 

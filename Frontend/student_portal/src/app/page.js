@@ -1,8 +1,49 @@
+'use client'
 import Image from "next/image";
 import { GraduationCap, User, Lock, Eye } from "lucide-react";
-import Link from "next/link";
+import { useState } from "react";
+import axios from 'axios'
 
 export default function HomePage() {
+
+  const [loginInfo, setLoginInfo] = useState({
+    studentID: '',
+    password: ''
+  })
+
+  const handleChanges = async (e) => {
+    const { name, value } = e.target
+    console.log(name, value);
+
+    setLoginInfo({ ...loginInfo, [name]: value })
+  }
+
+
+  const handleLogin = async (e) => {
+    e.preventDefault()
+
+    if (!(loginInfo.studentID || loginInfo.password)) {
+      return console.log('All feilds are required.');
+    }
+    try {
+      const res = await axios.post('/api/v1/loginUser', loginInfo, { withCredentials: true })
+      const result = await res.data
+
+      const { success, message } = result
+
+      if (success) {
+        console.log(message);
+      }
+    } catch (error) {
+      console.log(`Error occure while login from frontend side : ${error}`);
+
+    }
+  }
+
+
+
+
+
   return (
     <main className="min-h-screen bg-[#e2e7e1] p-0 sm:p-4 lg:p-6">
 
@@ -69,7 +110,7 @@ export default function HomePage() {
         </section>
 
         {/* RIGHT PANEL */}
-        <section className="relative z-10 -mt-5 w-full rounded-t-[28px] border border-[#edf0ed] bg-white px-6 py-9 shadow-[0_-8px_25px_rgba(50,70,50,0.08)] sm:-mt-6 sm:rounded-t-4xl sm:px-10 sm:py-12 md:px-12 lg:mt-0 lg:w-1/2 lg:rounded-none lg:border-0 lg:px-8 lg:py-12 lg:shadow-none xl:px-[5.5%] xl:pt-[70px]">
+        <section className="relative z-10 -mt-5 w-full rounded-t-[28px] border border-[#edf0ed] bg-white px-6 py-9 shadow-[0_-8px_25px_rgba(50,70,50,0.08)] sm:-mt-6 sm:rounded-t-4xl sm:px-10 sm:py-12 md:px-12 lg:mt-0 lg:w-1/2 lg:rounded-none lg:border-0 lg:px-8 lg:py-12 lg:shadow-none xl:px-[5.5%] xl:pt-18">
 
           {/* Heading */}
           <div>
@@ -83,7 +124,7 @@ export default function HomePage() {
           </div>
 
           {/* Login form */}
-          <form method="post" className="mt-8 flex flex-col sm:mt-10 xl:mt-11">
+          <form onSubmit={handleLogin} method="post" className="mt-8 flex flex-col sm:mt-10 xl:mt-11">
 
             {/* Student ID */}
             <label
@@ -94,19 +135,21 @@ export default function HomePage() {
               Student ID
             </label>
 
-            <div className="border flex h-12 w-full items-center gap-3 rounded-lg  border-[#e5e9e8] px-3 shadow-sm transition-colors focus-within:border-[#8ba18a] sm:h-[54px] sm:px-4">
+            <div className="border flex h-12 w-full items-center gap-3 rounded-lg  border-[#e5e9e8] px-3 shadow-sm transition-colors focus-within:border-[#8ba18a] sm:h-14 sm:px-4">
 
               <User size={16} color="#a3afb3" className="shrink-0" />
 
               <input
-                id="studentId"
-                name="studentId"
+                id="studentID"
+                name="studentID"
+                value={loginInfo.studentID}
                 type="text"
                 inputMode="numeric"
                 pattern="[0-9]*"
                 placeholder="Enter your student ID"
                 autoComplete="username"
                 required
+                onChange={handleChanges}
                 className="h-full min-w-0 w-full bg-transparent text-[13px] text-black outline-none placeholder:text-[#9aa4ad]"
               />
             </div>
@@ -120,17 +163,19 @@ export default function HomePage() {
               Password
             </label>
 
-            <div className="flex h-12 w-full items-center gap-3 rounded-lg border border-[#e5e9e8] px-3 shadow-sm transition-colors focus-within:border-[#8ba18a] sm:h-[54px] sm:px-4">
+            <div className="flex h-12 w-full items-center gap-3 rounded-lg border border-[#e5e9e8] px-3 shadow-sm transition-colors focus-within:border-[#8ba18a] sm:h-14 sm:px-4">
 
               <Lock size={16} color="#a3afb3" className="shrink-0" />
 
               <input
                 id="password"
                 name="password"
+                value={loginInfo.password}
                 type="password"
                 placeholder="Enter your password"
                 autoComplete="current-password"
                 required
+                onChange={handleChanges}
                 className="h-full min-w-0 w-full bg-transparent text-[13px] text-black outline-none placeholder:text-[#9aa4ad]"
               />
 
@@ -162,11 +207,11 @@ export default function HomePage() {
             </div>
 
             {/* Sign In button */}
-            <Link href={'/Dashboard'}
+            <button type="submit"
               className="mt-8 h-12 w-full flex justify-center items-center rounded-lg bg-[#819b80] text-sm font-bold text-white transition-colors hover:bg-[#718b70] sm:mt-10 sm:h-14"
             >
               Sign In
-            </Link>
+            </button>
           </form>
 
           {/* Bottom message */}

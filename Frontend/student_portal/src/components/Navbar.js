@@ -14,7 +14,6 @@ export default function Navbar() {
     setMounted(true);
   }, []);
 
-  // if (!mounted) return null;
 
   return (
     <header className="flex h-16 w-full items-center justify-between lg:justify-end gap-3 border-b border-[#e7eae3] dark:border-[#34443a] bg-[#f8f9f5] dark:bg-[#1c2921] px-3 sm:px-6 lg:px-8">

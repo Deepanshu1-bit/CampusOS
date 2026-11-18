@@ -10,7 +10,7 @@ export default function HomePage() {
     studentID: '',
     password: ''
   })
-
+  const [error, setError] = useState('')
   const handleChanges = async (e) => {
     const { name, value } = e.target
     console.log(name, value);
@@ -23,7 +23,7 @@ export default function HomePage() {
     e.preventDefault()
 
     if (!(loginInfo.studentID || loginInfo.password)) {
-      return console.log('All feilds are required.');
+      return setError("Please fill all required fields.");
     }
     try {
       const res = await axios.post('/api/v1/loginUser', loginInfo, { withCredentials: true })
@@ -34,19 +34,18 @@ export default function HomePage() {
       if (success) {
         console.log(message);
       }
-    } catch (error) {
-      console.log(`Error occure while login from frontend side : ${error}`);
-
+    } catch (err) {
+      setError(err.response?.data?.message || "Something went wrong.");
     }
   }
 
-
-
-
-
   return (
     <main className="min-h-screen bg-[#e2e7e1] p-0 sm:p-4 lg:p-6">
-
+      {error && (
+        <div className="text-red-500 text-sm">
+          {error}
+        </div>
+      )}
       <div className="mx-auto flex min-h-screen w-full max-w-6xl flex-col overflow-hidden bg-white shadow-2xl sm:rounded-lg md:min-h-0 lg:flex-row">
 
         {/* LEFT PANEL */}

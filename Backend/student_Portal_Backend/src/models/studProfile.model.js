@@ -3,7 +3,7 @@ import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
 
 
-const StudentSchema = new Schema(
+const StudentProfileSchema = new Schema(
     {
         PersonalDetails: {
             FullName: {
@@ -60,7 +60,9 @@ const StudentSchema = new Schema(
             },
             Semester: {
                 type: Number,
-                required: true
+                required: true,
+                default: 1,
+                min: 1
             },
 
             EnrollmentStatus: {
@@ -126,15 +128,15 @@ const StudentSchema = new Schema(
     }, { timestamps: true }
 )
 
-StudentSchema.pre('save', async function () {
+StudentProfileSchema.pre('save', async function () {
     if (!this.isModified('password')) return
-    
+
     this.password = await bcrypt.hash(this.password, 10)
 })
 
-StudentSchema.methods.isPasswordCorrect = async function (password) {
-    await bcrypt.compare(password, this.password)
+StudentProfileSchema.methods.isPasswordCorrect = async function (password) {
+    return await bcrypt.compare(password, this.password)
 }
 
-export const StudentModel = mongoose.model('Student', StudentSchema)
+export const Student = mongoose.model('Student', StudentProfileSchema)
 

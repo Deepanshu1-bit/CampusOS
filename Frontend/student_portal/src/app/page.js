@@ -1,49 +1,67 @@
 'use client'
 import Image from "next/image";
-import { GraduationCap, User, Lock, Eye } from "lucide-react";
+import { GraduationCap, User, Lock, Eye, EyeOff, AlertTriangle, X } from "lucide-react";
 import { useState } from "react";
 import axios from 'axios'
+import { useRouter } from "next/navigation";
+
 
 export default function HomePage() {
-
+  const navigate = useRouter()
   const [loginInfo, setLoginInfo] = useState({
-    studentID: '',
+    StudentID: '',
     password: ''
   })
   const [error, setError] = useState('')
-  const handleChanges = async (e) => {
-    const { name, value } = e.target
-    console.log(name, value);
+  const [showPassword, setShowPassword] = useState('password')
 
-    setLoginInfo({ ...loginInfo, [name]: value })
-  }
+  const handleChanges = (e) => {
+    const { name, value } = e.target;
+
+    setLoginInfo((prev) => ({
+      ...prev,
+      [name]: value
+    }));
+  };
 
 
   const handleLogin = async (e) => {
     e.preventDefault()
 
-    if (!(loginInfo.studentID || loginInfo.password)) {
+    if (!loginInfo.StudentID || !loginInfo.password) {
       return setError("Please fill all required fields.");
     }
     try {
-      const res = await axios.post('/api/v1/loginUser', loginInfo, { withCredentials: true })
+      const res = await axios.post('http://localhost:8000/api/v1/login', loginInfo, { withCredentials: true })
       const result = await res.data
 
-      const { success, message } = result
+      const { success } = result
 
       if (success) {
-        console.log(message);
+        navigate.push('/Dashboard');
       }
     } catch (err) {
-      setError(err.response?.data?.message || "Something went wrong.");
+      setError(err.response?.data?.message || "Invalid user.");
     }
   }
 
   return (
     <main className="min-h-screen bg-[#e2e7e1] p-0 sm:p-4 lg:p-6">
       {error && (
-        <div className="text-red-500 text-sm">
-          {error}
+        <div className="fixed top-5 right-5 z-50 flex w-full max-w-64 items-center gap-2 rounded-lg border border-[#f85149] bg-[#f851491a] py-3 pl-4 pr-14 text-base font-medium text-[#b22b2b] shadow-lg">
+
+          <AlertTriangle size={28} className="shrink-0 text-[#b22b2b]" />
+
+          <p className="mr-auto">{error}</p>
+
+          <button
+            type="button"
+            onClick={() => setError('')}
+            className="absolute right-4 rounded-md border border-[#f85149] p-1 text-[#f85149] opacity-40 transition hover:opacity-100"
+          >
+            <X size={16} />
+          </button>
+
         </div>
       )}
       <div className="mx-auto flex min-h-screen w-full max-w-6xl flex-col overflow-hidden bg-white shadow-2xl sm:rounded-lg md:min-h-0 lg:flex-row">
@@ -140,8 +158,8 @@ export default function HomePage() {
 
               <input
                 id="studentID"
-                name="studentID"
-                value={loginInfo.studentID}
+                name="StudentID"
+                value={loginInfo.StudentID}
                 type="text"
                 inputMode="numeric"
                 pattern="[0-9]*"
@@ -170,7 +188,7 @@ export default function HomePage() {
                 id="password"
                 name="password"
                 value={loginInfo.password}
-                type="password"
+                type={showPassword ? "text" : "password"}
                 placeholder="Enter your password"
                 autoComplete="current-password"
                 required
@@ -178,11 +196,17 @@ export default function HomePage() {
                 className="h-full min-w-0 w-full bg-transparent text-[13px] text-black outline-none placeholder:text-[#9aa4ad]"
               />
 
-              <Eye
-                size={16}
-                color="#9aa4ad"
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
                 className="shrink-0 cursor-pointer"
-              />
+              >
+                {showPassword ? (
+                  <EyeOff size={16} color="#9aa4ad" />
+                ) : (
+                  <Eye size={16} color="#9aa4ad" />
+                )}
+              </button>
             </div>
 
             {/* Remember me and forgot password */}

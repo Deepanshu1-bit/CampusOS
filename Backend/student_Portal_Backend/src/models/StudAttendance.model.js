@@ -9,7 +9,7 @@ const StudentAttendanceSchema = new Schema({
         required: true
     },
 
-    Subjects: [
+    subjects: [
         {
             subject: {
                 type: Schema.Types.ObjectId,
@@ -33,4 +33,4 @@ const StudentAttendanceSchema = new Schema({
     { timestamps: true }
 )
 
-export const StudentAttendanceModel = mongoose.model('studentAttendance', StudentAttendanceSchema)
+export const StudentAttendance = mongoose.model('StudentAttendance', StudentAttendanceSchema)

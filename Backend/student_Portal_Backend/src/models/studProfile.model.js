@@ -5,125 +5,124 @@ import jwt from 'jsonwebtoken'
 
 const StudentProfileSchema = new Schema(
     {
-        PersonalDetails: {
-            FullName: {
+        personalDetails: {
+            fullName: {
                 type: String,
                 required: true,
                 trim: true
             },
-            Gender: {
+            gender: {
                 type: String,
                 enum: ["Male", "Female", "Other"],
                 required: true,
                 trim: true
             },
-            DOB: {
+            dob: {
                 type: Date,
                 required: true
             },
-            BloodGroup: {
+            bloodGroup: {
                 type: String,
                 enum: ["A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-"],
                 required: true,
                 trim: true
             }
         },
-        AcademicDetails: {
-            Course: {
+        academicDetails: {
+            course: {
                 type: String,
                 required: true,
                 trim: true
             },
-            University: {
+            university: {
                 type: String,
                 required: true,
                 trim: true
             },
-            CurrentYear: {
+            currentYear: {
                 type: Number,
                 required: true
             },
-            AdmissionYear: {
+            admissionYear: {
                 type: Number,
                 required: true
             },
-            StudentID: {
+            studentID: {
                 type: String,
                 unique: true,
                 required: true,
                 trim: true
             },
-            CollegeName: {
+            collegeName: {
                 type: String,
                 required: true,
                 trim: true
             },
-            Semester: {
+            semester: {
                 type: Number,
                 required: true,
                 default: 1,
                 min: 1
             },
 
-            EnrollmentStatus: {
+            enrollmentStatus: {
                 type: String,
-                enum: ['Active', 'Deactive'],
+                enum: ['Active', 'Inactive'],
                 required: true,
                 trim: true
             },
         },
-        ContactInformation: {
+        contactInformation: {
             email: {
                 type: String,
                 unique: true,
                 required: true,
                 trim: true
             },
-            Address: {
+            address: {
                 type: String,
                 required: true,
                 trim: true
             },
-            State: {
+            state: {
                 type: String,
                 required: true,
                 trim: true
             },
-            EmergencyContact: {
+            emergencyContact: {
                 type: String,
                 required: true,
                 trim: true
             },
-            PhoneNumber: {
+            phoneNumber: {
                 type: String,
                 unique: true,
                 required: true,
                 trim: true
             },
-            City: {
+            city: {
                 type: String,
                 required: true,
                 trim: true
             },
-            Country: {
+            country: {
                 type: String,
                 required: true,
                 trim: true
             },
-            GuardianName: {
+            guardianName: {
                 type: String,
                 required: true,
                 trim: true
             },
         },
-        ProfileImg: {
+        profileImg: {
             type: String,
             default: ""
         },
         password: {
             type: String,
-            required: true,
-            trim: true
+            required: true
         }
     }, { timestamps: true }
 )

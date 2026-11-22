@@ -24,6 +24,6 @@ const SubjectSchema = new Schema({
         type: String,
         required: true
     }
-});
+}, { timestamps: true });
 
-export const SubjectModel = mongoose.model("Subject", SubjectSchema);
+export const Subject = mongoose.model("Subject", SubjectSchema);

@@ -9,14 +9,14 @@ import { ApiError } from '../utils/ApiError.js'
 
 
 const loginUser = asyncHandler(async (req, res) => {
-    const { StudentID, password } = req.body
+    const { studentID, password } = req.body;
 
-    if (!StudentID || !password) {
+    if (!studentID || !password) {
         throw new ApiError(400, 'All Fields are required.')
     }
 
     const ExistedUser = await Student.findOne({
-        "AcademicDetails.StudentID": StudentID
+        "AcademicDetails.StudentID": studentID
     });
     if (!ExistedUser) {
         throw new ApiError(400, "User doesn't exist.")
@@ -33,18 +33,24 @@ const loginUser = asyncHandler(async (req, res) => {
         .json(new ApiResponse(200, { user: loginUser }, 'User loggin successfully!'))
 })
 
+
 const registerUser = asyncHandler(async (req, res) => {
 
-    const { PersonalDetails, AcademicDetails, ContactInformation, password } = req.body;
+    const {
+        personalDetails,
+        academicDetails,
+        contactInformation,
+        password
+    } = req.body;
 
-    const StudentID = AcademicDetails?.StudentID;
+    const studentID = academicDetails?.studentID;
 
-    if (!StudentID || !password) {
+    if (!studentID || !password) {
         throw new ApiError(400, "Student ID and password are required.");
     }
 
     const existingUser = await Student.findOne({
-        "AcademicDetails.StudentID": StudentID
+        "academicDetails.studentID": studentID
     });
 
     if (existingUser) {
@@ -52,9 +58,9 @@ const registerUser = asyncHandler(async (req, res) => {
     }
 
     const user = await Student.create({
-        PersonalDetails,
-        AcademicDetails,
-        ContactInformation,
+        personalDetails,
+        academicDetails,
+        contactInformation,
         password
     });
 
@@ -73,6 +79,7 @@ const registerUser = asyncHandler(async (req, res) => {
         )
     );
 });
+
 
 
 export { loginUser, registerUser }

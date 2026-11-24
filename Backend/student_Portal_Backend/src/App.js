@@ -9,10 +9,15 @@ const app = express()
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+const allowedOrigins = [
+    'http://localhost:3000',
+    'https://campus-os-lemon-eta.vercel.app'
+];
+
 app.use(cors({
-    origin: process.env.CORS_ORIGIN,
+    origin: allowedOrigins,
     credentials: true
-}))
+}));
 
 app.use('/api/v1', routes)
 

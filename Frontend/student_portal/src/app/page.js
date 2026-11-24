@@ -32,7 +32,7 @@ export default function HomePage() {
       return setError("Please fill all required fields.");
     }
     try {
-      const res = await axios.post('http://localhost:8000/api/v1/login', loginInfo, { withCredentials: true })
+      const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/login`, loginInfo, { withCredentials: true });
       const result = await res.data
 
       const { success } = result

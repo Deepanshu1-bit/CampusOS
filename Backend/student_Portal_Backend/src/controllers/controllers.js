@@ -1,6 +1,6 @@
 import bcrypt from 'bcrypt'
 import { asyncHandler } from '../utils/asyncHandler.js'
-import { Student } from '../models/studProfile.model.js'
+import { Student } from '../models/StudProfile.model.js'
 import { ApiResponse } from '../utils/ApiResponse.js'
 import { ApiError } from '../utils/ApiError.js'
 

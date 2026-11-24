@@ -9,7 +9,7 @@ import { useRouter } from "next/navigation";
 export default function HomePage() {
   const navigate = useRouter()
   const [loginInfo, setLoginInfo] = useState({
-    StudentID: '',
+    studentID: '',
     password: ''
   })
   const [error, setError] = useState('')
@@ -28,7 +28,7 @@ export default function HomePage() {
   const handleLogin = async (e) => {
     e.preventDefault()
 
-    if (!loginInfo.StudentID || !loginInfo.password) {
+    if (!loginInfo.studentID  || !loginInfo.password) {
       return setError("Please fill all required fields.");
     }
     try {
@@ -158,8 +158,8 @@ export default function HomePage() {
 
               <input
                 id="studentID"
-                name="StudentID"
-                value={loginInfo.StudentID}
+                name="studentID"
+                value={loginInfo.studentID}
                 type="text"
                 inputMode="numeric"
                 pattern="[0-9]*"

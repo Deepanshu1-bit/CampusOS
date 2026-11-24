@@ -7,7 +7,6 @@ import { ApiError } from '../utils/ApiError.js'
 
 
 
-
 const loginUser = asyncHandler(async (req, res) => {
     const { studentID, password } = req.body;
 

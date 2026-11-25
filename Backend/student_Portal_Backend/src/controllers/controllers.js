@@ -15,7 +15,7 @@ const loginUser = asyncHandler(async (req, res) => {
     }
 
     const ExistedUser = await Student.findOne({
-        "AcademicDetails.StudentID": studentID
+        "academicDetails.studentID": studentID
     });
     if (!ExistedUser) {
         throw new ApiError(400, "User doesn't exist.")

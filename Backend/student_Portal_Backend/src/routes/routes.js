@@ -5,7 +5,7 @@ const router = Router()
 
 router.route('/login').post(loginStudent)
 router.route('/register').post(registerStudent)
-router.route('/attendance').post(studentAttendance)
+// router.route('/attendance').post(studentAttendance)
 
 //Protected Routes
 router.route('/dashboard').get(verifyJWT, dashboard)

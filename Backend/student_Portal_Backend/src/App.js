@@ -10,7 +10,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 const allowedOrigins = [
-    'http://localhost:3000',
+    `${process.env.CORS_ORIGIN}`,
     'https://campus-os-lemon-eta.vercel.app'
 ];
 
@@ -18,6 +18,14 @@ app.use(cors({
     origin: allowedOrigins,
     credentials: true
 }));
+
+app.use((req, res, next) => {
+    // console.log("Request Origin:", req.headers.origin);
+    // console.log("Request URL:", req.originalUrl);
+    // console.log("Backend received request at:", req.protocol + "://" + req.get("host"));
+    // console.log("Backend URL:", process.env.PORT);
+    next();
+});
 
 app.use('/api/v1', routes)
 

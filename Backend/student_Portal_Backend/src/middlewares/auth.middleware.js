@@ -1,0 +1,27 @@
+import jwt from "jsonwebtoken";
+import { asyncHandler } from "../utils/asyncHandler";
+import { ApiError } from "../utils/ApiError";
+import { Student } from "../models/StudProfile.model";
+
+
+export const verifyJWT = asyncHandler(async (req, res, next) => {
+    try {
+        const token = req.cookies?.refreshToken
+        if (!token) {
+            throw new ApiError(401, 'Unauthorized request')
+        }
+
+        const decodedToken = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET)
+        const student = await Student.findById(decodedToken._id).select('-password -refreshToken')
+        if (!student) {
+            throw new ApiError(401, 'Invalid Access Token')
+        }
+
+        req.student = student
+        next()
+    } catch (error) {
+        console.log('Error: ', error)
+        throw new ApiError(401, error?.message || "Invalid Access Token")
+    }
+})
+

@@ -1,3 +1,4 @@
+'use client'
 import Image from "next/image";
 import {
   CalendarCheck,
@@ -9,6 +10,8 @@ import {
   Volume2,
 } from "lucide-react";
 import Link from "next/link";
+import { useEffect } from "react";
+import axios from "axios";
 
 const dashboardCards = [
   {
@@ -132,6 +135,23 @@ function UpcomingItem({ item, index }) {
 }
 
 export default function Dashboard() {
+
+
+  // useEffect(async () => {
+  //   try {
+  //     const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/dashboard`, { withCredentials: true })
+  //     const result = res.data
+
+  //     const { success, data, message } = result
+  //     if (success) {
+  //       console.log(message);
+        
+  //     }
+  //   } catch (error) {
+  //     console.log('Error occure in dashboard Api: ', error)
+  //   }
+  // }, [])
+
   return (
     <div className=" min-h-screen bg-[#f3f5f1] dark:bg-[#111c16] px-4 pt-7 pb-20 sm:px-6 lg:px-8 lg:py-7">
 
@@ -188,7 +208,7 @@ export default function Dashboard() {
         {/* Campus Image Card */}
         <div className="overflow-hidden rounded-xl bg-[#d6e8dc] dark:bg-[#263b2e] shadow-xl">
           <div className="relative h-40 w-full sm:h-48 xl:h-40">
-            <Image src="/cllgimg.png" alt="College campus" fill sizes="(max-width: 1280px) 100vw, 250px" className="object-cover"/>
+            <Image src="/cllgimg.png" alt="College campus" fill sizes="(max-width: 1280px) 100vw, 250px" className="object-cover" />
           </div>
 
           <div className="px-5 py-4">

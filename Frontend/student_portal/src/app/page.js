@@ -13,7 +13,7 @@ export default function HomePage() {
     password: ''
   })
   const [error, setError] = useState('')
-  const [showPassword, setShowPassword] = useState('password')
+  const [showPassword, setShowPassword] = useState('text')
 
   const handleChanges = (e) => {
     const { name, value } = e.target;
@@ -28,7 +28,7 @@ export default function HomePage() {
   const handleLogin = async (e) => {
     e.preventDefault()
 
-    if (!loginInfo.studentID  || !loginInfo.password) {
+    if (!loginInfo.studentID || !loginInfo.password) {
       return setError("Please fill all required fields.");
     }
     try {
@@ -145,7 +145,7 @@ export default function HomePage() {
 
             {/* Student ID */}
             <label
-              htmlFor="studentId"
+              htmlFor="studentID"
               className="mb-3 flex items-center gap-2 text-xs text-[#333333] sm:mb-4"
             >
               <User size={13} color="#a3afb3" />
@@ -161,8 +161,6 @@ export default function HomePage() {
                 name="studentID"
                 value={loginInfo.studentID}
                 type="text"
-                inputMode="numeric"
-                pattern="[0-9]*"
                 placeholder="Enter your student ID"
                 autoComplete="username"
                 required
@@ -188,7 +186,7 @@ export default function HomePage() {
                 id="password"
                 name="password"
                 value={loginInfo.password}
-                type={showPassword ? "text" : "password"}
+                type={showPassword ? "password" : "text"}
                 placeholder="Enter your password"
                 autoComplete="current-password"
                 required

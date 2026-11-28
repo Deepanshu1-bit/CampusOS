@@ -9,6 +9,14 @@ const nextConfig = {
       },
     },
   },
+  async rewrites() {
+    return [
+      {
+        source: "/api/:path*",
+        destination: "https://campusos-9k6e.onrender.com/api/:path*",
+      },
+    ];
+  },
 };
 
 export default nextConfig;

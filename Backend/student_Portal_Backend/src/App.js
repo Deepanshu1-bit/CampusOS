@@ -1,6 +1,7 @@
 import express from "express";
 import cors from 'cors'
 import 'dotenv/config'
+import cookieParser from 'cookie-parser'
 
 import routes from "./routes/routes.js";
 
@@ -13,6 +14,8 @@ const allowedOrigins = [
     `http://localhost:3000`,
     'https://campus-os-lemon-eta.vercel.app'
 ];
+
+app.use(cookieParser())
 
 app.use(cors({
     origin: allowedOrigins,

@@ -49,13 +49,14 @@ const loginStudent = asyncHandler(async (req, res) => {
 
     const options = {
         httpOnly: true,
-        secure: true
+        secure: true,
+        sameSite: 'none'
     }
 
     return res.status(200)
         .cookie('refreshToken', refreshToken, options)
         .cookie('accessToken', accessToken, options)
-        .json(new ApiResponse(200, { user: loginUser, accessToken, refreshToken }, 'User loggin successfully!'))
+        .json(new ApiResponse(200, { user: loginUser}, 'User loggin successfully!'))
 })
 
 const registerStudent = asyncHandler(async (req, res) => {
@@ -94,12 +95,13 @@ const registerStudent = asyncHandler(async (req, res) => {
     }
     const options = {
         httpOnly: true,
-        secure: true
+        secure: true,
+        sameSite: 'none'
     }
 
     return res.status(201)
-        .cookie("RefreshToken", refreshToken, options)
-        .cookie("AccessToken", accessToken, options)
+        .cookie("refreshToken", refreshToken, options)
+        .cookie("accessToken", accessToken, options)
         .json(new ApiResponse(201, { user: createdUser }, "Student registered successfully."));
 });
 
